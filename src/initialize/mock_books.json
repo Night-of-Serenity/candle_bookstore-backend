@@ -1,0 +1,502 @@
+[
+  {
+    "title": "1984",
+    "author": "Agatha Christie",
+    "pages": 392,
+    "publised_year": 2012,
+    "description": "Nulla mollis molestie lorem.",
+    "stocks": 7,
+    "price": 17.91,
+    "discount": 0.22
+  },
+  {
+    "title": "The Stand",
+    "author": "Isabel Allende",
+    "pages": 10,
+    "publised_year": 1985,
+    "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.",
+    "stocks": 26,
+    "price": 24.79,
+    "discount": 0.35
+  },
+  {
+    "title": "Brave New World",
+    "author": "J.D. Salinger",
+    "pages": 430,
+    "publised_year": 2021,
+    "description": "",
+    "stocks": 8,
+    "price": 7.77,
+    "discount": 0.08
+  },
+  {
+    "title": "The Silent Patient",
+    "author": "Bram Stoker",
+    "pages": 498,
+    "publised_year": 1977,
+    "description": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
+    "stocks": 21,
+    "price": 23.24,
+    "discount": 0.09
+  },
+  {
+    "title": "The Hunger Games",
+    "author": "Haruki Murakami",
+    "pages": 190,
+    "publised_year": 2005,
+    "description": "",
+    "stocks": 30,
+    "price": 24.38,
+    "discount": 0.35
+  },
+  {
+    "title": "The Alchemist",
+    "author": "Mark Twain",
+    "pages": 34,
+    "publised_year": 2021,
+    "description": "Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.",
+    "stocks": 1,
+    "price": 28.86,
+    "discount": 0.06
+  },
+  {
+    "title": "The Curious Incident of the Dog in the Night-Time",
+    "author": "Oscar Wilde",
+    "pages": 176,
+    "publised_year": 2006,
+    "description": "Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.",
+    "stocks": 30,
+    "price": 7.63,
+    "discount": 0.12
+  },
+  {
+    "title": "The Adventures of Huckleberry Finn",
+    "author": "Herman Melville",
+    "pages": 65,
+    "publised_year": 2005,
+    "description": "Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+    "stocks": 14,
+    "price": 29.45,
+    "discount": 0.02
+  },
+  {
+    "title": "The Code Breaker",
+    "author": "Edgar Allan Poe",
+    "pages": 351,
+    "publised_year": 1989,
+    "description": "Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.",
+    "stocks": 11,
+    "price": 26.24,
+    "discount": 0.26
+  },
+  {
+    "title": "The Code Breaker",
+    "author": "Ernest Hemingway",
+    "pages": 476,
+    "publised_year": 1982,
+    "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.",
+    "stocks": 10,
+    "price": 5.5,
+    "discount": 0.39
+  },
+  {
+    "title": "The Shining",
+    "author": "Emily Bronte",
+    "pages": 346,
+    "publised_year": 1971,
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus.",
+    "stocks": 27,
+    "price": 22.66,
+    "discount": 0.1
+  },
+  {
+    "title": "The Lord of the Rings",
+    "author": "Ray Bradbury",
+    "pages": 22,
+    "publised_year": 1980,
+    "description": "Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",
+    "stocks": 25,
+    "price": 25.46,
+    "discount": 0.13
+  },
+  {
+    "title": "The Sun Also Rises",
+    "author": "Kurt Vonnegut",
+    "pages": 174,
+    "publised_year": 1996,
+    "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+    "stocks": 13,
+    "price": 25.17,
+    "discount": 0.14
+  },
+  {
+    "title": "The Girl on the Train",
+    "author": "Kurt Vonnegut",
+    "pages": 266,
+    "publised_year": 1988,
+    "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",
+    "stocks": 0,
+    "price": 20.14,
+    "discount": 0.25
+  },
+  {
+    "title": "The Rose Code",
+    "author": "Dan Brown",
+    "pages": 294,
+    "publised_year": 2013,
+    "description": "Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
+    "stocks": 20,
+    "price": 24.99,
+    "discount": 0.16
+  },
+  {
+    "title": "The Hunger Games",
+    "author": "Charlotte Bronte",
+    "pages": 12,
+    "publised_year": 2008,
+    "description": "In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
+    "stocks": 21,
+    "price": 16.39,
+    "discount": 0.38
+  },
+  {
+    "title": "The Bone Code",
+    "author": "Ray Bradbury",
+    "pages": 364,
+    "publised_year": 2003,
+    "description": "Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
+    "stocks": 4,
+    "price": 5.02,
+    "discount": 0.11
+  },
+  {
+    "title": "The Da Vinci Code",
+    "author": "George R.R. Martin",
+    "pages": 305,
+    "publised_year": 2023,
+    "description": "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.",
+    "stocks": 15,
+    "price": 27.63,
+    "discount": 0.03
+  },
+  {
+    "title": "The Code Breaker",
+    "author": "Margaret Atwood",
+    "pages": 264,
+    "publised_year": 1973,
+    "description": "Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
+    "stocks": 14,
+    "price": 9.23,
+    "discount": 0.09
+  },
+  {
+    "title": "The President's Daughter",
+    "author": "Charlotte Bronte",
+    "pages": 463,
+    "publised_year": 1988,
+    "description": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl.",
+    "stocks": 1,
+    "price": 27.02,
+    "discount": 0.32
+  },
+  {
+    "title": "The Code Breaker",
+    "author": "George R.R. Martin",
+    "pages": 101,
+    "publised_year": 1989,
+    "description": "",
+    "stocks": 22,
+    "price": 24.37,
+    "discount": 0.27
+  },
+  {
+    "title": "The Burning Girls",
+    "author": "Stephen King",
+    "pages": 209,
+    "publised_year": 1989,
+    "description": "",
+    "stocks": 12,
+    "price": 17.76,
+    "discount": 0.2
+  },
+  {
+    "title": "The English Patient",
+    "author": "Leo Tolstoy",
+    "pages": 216,
+    "publised_year": 1999,
+    "description": "Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+    "stocks": 23,
+    "price": 26.81,
+    "discount": 0.31
+  },
+  {
+    "title": "Brave New World",
+    "author": "Ernest Hemingway",
+    "pages": 117,
+    "publised_year": 2007,
+    "description": "Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.",
+    "stocks": 16,
+    "price": 22.76,
+    "discount": 0.22
+  },
+  {
+    "title": "The Old Man and the Sea",
+    "author": "Agatha Christie",
+    "pages": 449,
+    "publised_year": 1989,
+    "description": "Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.",
+    "stocks": 2,
+    "price": 20.53,
+    "discount": 0.14
+  },
+  {
+    "title": "The Code Breaker",
+    "author": "John Grisham",
+    "pages": 213,
+    "publised_year": 1993,
+    "description": "Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",
+    "stocks": 15,
+    "price": 19.78,
+    "discount": 0.38
+  },
+  {
+    "title": "The Time Traveler's Wife",
+    "author": "Bram Stoker",
+    "pages": 392,
+    "publised_year": 2009,
+    "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.",
+    "stocks": 17,
+    "price": 9.15,
+    "discount": 0.04
+  },
+  {
+    "title": "The Scarlet Letter",
+    "author": "Dan Brown",
+    "pages": 384,
+    "publised_year": 1989,
+    "description": "Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.",
+    "stocks": 9,
+    "price": 23.45,
+    "discount": 0.25
+  },
+  {
+    "title": "The Burning Girls",
+    "author": "Toni Morrison",
+    "pages": 477,
+    "publised_year": 2021,
+    "description": "Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",
+    "stocks": 17,
+    "price": 11.82,
+    "discount": 0.16
+  },
+  {
+    "title": "The Hobbit",
+    "author": "Oscar Wilde",
+    "pages": 353,
+    "publised_year": 1988,
+    "description": "Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+    "stocks": 18,
+    "price": 10.07,
+    "discount": 0.23
+  },
+  {
+    "title": "The Code Breaker",
+    "author": "Isabel Allende",
+    "pages": 9,
+    "publised_year": 1983,
+    "description": "",
+    "stocks": 17,
+    "price": 8.29,
+    "discount": 0.31
+  },
+  {
+    "title": "The Old Man and the Sea",
+    "author": "Toni Morrison",
+    "pages": 176,
+    "publised_year": 2000,
+    "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.",
+    "stocks": 7,
+    "price": 28.54,
+    "discount": 0.22
+  },
+  {
+    "title": "The Stand",
+    "author": "Toni Morrison",
+    "pages": 422,
+    "publised_year": 1991,
+    "description": "",
+    "stocks": 23,
+    "price": 26.14,
+    "discount": 0.27
+  },
+  {
+    "title": "The English Patient",
+    "author": "George R.R. Martin",
+    "pages": 434,
+    "publised_year": 1994,
+    "description": "Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.",
+    "stocks": 2,
+    "price": 28.99,
+    "discount": 0.2
+  },
+  {
+    "title": "The Immortal Life of Henrietta Lacks",
+    "author": "Jane Austen",
+    "pages": 14,
+    "publised_year": 2001,
+    "description": "",
+    "stocks": 22,
+    "price": 11.32,
+    "discount": 0.12
+  },
+  {
+    "title": "The Therapist",
+    "author": "Herman Melville",
+    "pages": 18,
+    "publised_year": 2021,
+    "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.",
+    "stocks": 12,
+    "price": 23.06,
+    "discount": 0.21
+  },
+  {
+    "title": "The Immortal Life of Henrietta Lacks",
+    "author": "Oscar Wilde",
+    "pages": 365,
+    "publised_year": 1973,
+    "description": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+    "stocks": 12,
+    "price": 17.47,
+    "discount": 0.29
+  },
+  {
+    "title": "The Code Breaker",
+    "author": "Edgar Allan Poe",
+    "pages": 93,
+    "publised_year": 2006,
+    "description": "Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam.",
+    "stocks": 12,
+    "price": 22.86,
+    "discount": 0.05
+  },
+  {
+    "title": "The Book Thief",
+    "author": "Ernest Hemingway",
+    "pages": 351,
+    "publised_year": 2000,
+    "description": "Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio.",
+    "stocks": 11,
+    "price": 25.54,
+    "discount": 0.28
+  },
+  {
+    "title": "The Sun Also Rises",
+    "author": "Bram Stoker",
+    "pages": 133,
+    "publised_year": 1978,
+    "description": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.",
+    "stocks": 21,
+    "price": 18.19,
+    "discount": 0.36
+  },
+  {
+    "title": "The Turnout",
+    "author": "Kurt Vonnegut",
+    "pages": 87,
+    "publised_year": 2016,
+    "description": "",
+    "stocks": 25,
+    "price": 28.23,
+    "discount": 0.3
+  },
+  {
+    "title": "The Kite Runner",
+    "author": "Charlotte Bronte",
+    "pages": 335,
+    "publised_year": 1991,
+    "description": "Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
+    "stocks": 9,
+    "price": 23.46,
+    "discount": 0.34
+  },
+  {
+    "title": "The Kite Runner",
+    "author": "J.K. Rowling",
+    "pages": 167,
+    "publised_year": 2017,
+    "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",
+    "stocks": 30,
+    "price": 19.53,
+    "discount": 0.39
+  },
+  {
+    "title": "The Picture of Dorian Gray",
+    "author": "John Grisham",
+    "pages": 66,
+    "publised_year": 1973,
+    "description": "",
+    "stocks": 0,
+    "price": 27.12,
+    "discount": 0.0
+  },
+  {
+    "title": "The Glass Castle",
+    "author": "J.K. Rowling",
+    "pages": 261,
+    "publised_year": 1974,
+    "description": "Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+    "stocks": 24,
+    "price": 12.85,
+    "discount": 0.29
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Jane Austen",
+    "pages": 498,
+    "publised_year": 2015,
+    "description": "Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl.",
+    "stocks": 1,
+    "price": 26.68,
+    "discount": 0.29
+  },
+  {
+    "title": "The Code Breaker",
+    "author": "Mark Twain",
+    "pages": 474,
+    "publised_year": 1993,
+    "description": "Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+    "stocks": 5,
+    "price": 13.4,
+    "discount": 0.32
+  },
+  {
+    "title": "The Scarlet Letter",
+    "author": "Agatha Christie",
+    "pages": 500,
+    "publised_year": 2007,
+    "description": "Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+    "stocks": 8,
+    "price": 16.13,
+    "discount": 0.18
+  },
+  {
+    "title": "The Family Plot",
+    "author": "Edgar Allan Poe",
+    "pages": 422,
+    "publised_year": 1996,
+    "description": "Duis at velit eu est congue elementum.",
+    "stocks": 24,
+    "price": 10.01,
+    "discount": 0.33
+  },
+  {
+    "title": "The Code Breaker",
+    "author": "George R.R. Martin",
+    "pages": 197,
+    "publised_year": 1992,
+    "description": "Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",
+    "stocks": 2,
+    "price": 16.79,
+    "discount": 0.07
+  }
+]
