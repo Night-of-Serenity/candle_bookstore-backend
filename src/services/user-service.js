@@ -32,7 +32,7 @@ exports.getAdminById = async (id) => {
       [Op.and]: [{ id: id }, { isAdmin: true }],
     },
   });
-  return;
+  return admin;
 };
 
 exports.getUserById = async (id) => {
