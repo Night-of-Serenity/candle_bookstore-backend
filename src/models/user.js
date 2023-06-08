@@ -53,6 +53,7 @@ module.exports = (sequelize, DataTypes) => {
       facebookId: DataTypes.STRING,
     },
     {
+      paranoid: true,
       underscored: true,
     }
   );
