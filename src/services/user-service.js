@@ -25,3 +25,19 @@ exports.getUserByUsername = async (username) => {
   });
   return user;
 };
+
+exports.getAdminById = async (id) => {
+  const admin = await User.findOne({
+    where: {
+      [Op.and]: [{ id: id }, { isAdmin: true }],
+    },
+  });
+  return;
+};
+
+exports.getUserById = async (id) => {
+  const user = await User.findOne({
+    where: { id: id },
+  });
+  return user;
+};

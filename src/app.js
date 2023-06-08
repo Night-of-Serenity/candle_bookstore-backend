@@ -7,6 +7,7 @@ const rateLimit = require("express-rate-limit");
 const notFoundMiddleware = require("./middlewares/notFoundMiddleware");
 const errorMiddleware = require("./middlewares/errorMiddleware");
 const authRoute = require("./routes/auth-route");
+const booksRoute = require("./routes/books-route");
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(helmet());
 app.use(express.json());
 
 app.use("/auth", authRoute);
+app.use("/book", booksRoute);
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);

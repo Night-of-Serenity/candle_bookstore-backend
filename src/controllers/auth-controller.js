@@ -56,3 +56,15 @@ exports.login = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.fetchMe = async (req, res, next) => {
+  try {
+    if (req.user) {
+      res.status(200).json(req.user);
+    } else {
+      throw new Error("no user data attratched on request");
+    }
+  } catch (err) {
+    next(err);
+  }
+};
