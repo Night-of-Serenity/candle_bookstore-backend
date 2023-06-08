@@ -6,3 +6,5 @@ const AuthenticateAdmin = require("../middlewares/authenticateAdmin");
 const booksRoute = express.Router();
 
 booksRoute.post("/add", AuthenticateUser, AuthenticateAdmin, () => {});
+
+module.exports = booksRoute;
