@@ -40,6 +40,9 @@ module.exports = (sequelize, DataTypes) => {
       password: {
         type: DataTypes.STRING,
         allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
       },
       address: {
         type: DataTypes.STRING,
@@ -57,6 +60,45 @@ module.exports = (sequelize, DataTypes) => {
       underscored: true,
     }
   );
+
+  User.associate = (models) => {
+    User.hasMany(models.Order, {
+      foreignKey: {
+        allowNull: false,
+        name: "userId",
+      },
+      onDelete: "RESTRICT",
+    });
+
+    User.hasMany(models.CartItem, {
+      foreignKey: {
+        allowNull: false,
+        name: "userId",
+      },
+      onDelete: "RESTRICT",
+    });
+
+    // User.hasMany(models.Like, {
+    //   foreignKey: {
+    //     allowNull: false,
+    //     name: "userId",
+    //   },
+    //   onDelete: "RESTRICT",
+    // });
+
+    User.hasMany(models.Review, {
+      foreignKey: {
+        allowNull: false,
+        name: "userId",
+      },
+      onDelete: "RESTRICT",
+    });
+
+    User.belongsToMany(models.Review, {
+      through: models.Like,
+      as: "LikedUserId",
+    });
+  };
 
   return User;
 };

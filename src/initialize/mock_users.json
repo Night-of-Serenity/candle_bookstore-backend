@@ -1,17 +1,18 @@
 [
   {
-    "username": "aklimas0",
+    "username": "Andy",
     "firstName": "Armand",
     "lastName": "Klimas",
     "email": "aklimas0@wufoo.com",
     "mobile": "0833423825"
   },
   {
-    "username": "geacott1",
+    "username": "John",
     "firstName": "Greggory",
     "lastName": "Eacott",
     "email": "geacott1@yellowbook.com",
-    "mobile": "0607664171"
+    "mobile": "0607664171",
+    "isAdmin": true
   },
   {
     "username": "echaman2",
