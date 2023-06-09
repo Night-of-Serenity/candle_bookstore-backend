@@ -18,9 +18,16 @@ exports.register = async (req, res, next) => {
     // hash password
     result.password = await bcrypService.hash(result.password);
 
+    // create user
     const user = await UserService.createUser(result);
-    console.log(result);
-    console.log(user);
+
+    // create token
+    const accessToken = tokenService.sign({ id: user.id });
+
+    // send back token and isAdmin status
+    res.status(200).json({ accessToken, isAdmin: user.isAdmin });
+
+    //
     res.status(200).json(user);
   } catch (err) {
     next(err);
