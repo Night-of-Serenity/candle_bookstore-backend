@@ -20,23 +20,23 @@ module.exports = (sequelize, DataTypes) => {
       },
       pages: {
         type: DataTypes.INTEGER,
+        allowNull: false,
       },
       publishedYear: {
         type: DataTypes.INTEGER,
       },
       quantity: {
         type: DataTypes.INTEGER,
-        allowNull: false,
       },
       saleQuantity: {
         type: DataTypes.INTEGER,
       },
       price: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.DECIMAL(6, 2),
         allowNull: false,
       },
       discount: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.DECIMAL(6, 2),
       },
       description: {
         type: DataTypes.TEXT,
@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
       },
       rating: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.DECIMAL(6, 2),
       },
     },
     {

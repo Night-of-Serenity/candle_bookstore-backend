@@ -5,14 +5,14 @@ module.exports = (sequelize, DataTypes) => {
     "Order",
     {
       totalPrice: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.DECIMAL(6, 2),
         allowNull: false,
       },
       totalDiscount: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.DECIMAL(6, 2),
       },
       deliveryFee: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.DECIMAL(6, 2),
       },
       OrderStatus: {
         type: DataTypes.ENUM("confirmed", "pending"),
