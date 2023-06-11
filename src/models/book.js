@@ -47,6 +47,9 @@ module.exports = (sequelize, DataTypes) => {
       rating: {
         type: DataTypes.DECIMAL(6, 2),
       },
+      bookCover: {
+        type: DataTypes.STRING,
+      },
     },
     {
       paranoid: true,
