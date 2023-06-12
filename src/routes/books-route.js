@@ -1,10 +1,15 @@
 const express = require("express");
-const Authenticate = require("../middlewares/authenticateAdmin");
 const AuthenticateUser = require("../middlewares/authenticateUser");
 const AuthenticateAdmin = require("../middlewares/authenticateAdmin");
+const BookController = require("../controllers/book-controller");
 
 const booksRoute = express.Router();
 
-booksRoute.post("/add", AuthenticateUser, AuthenticateAdmin, () => {});
+booksRoute.post(
+  "/addbook",
+  AuthenticateUser,
+  AuthenticateAdmin,
+  BookController.addBook
+);
 
 module.exports = booksRoute;

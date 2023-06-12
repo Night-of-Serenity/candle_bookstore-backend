@@ -13,16 +13,6 @@ const createMockData = async () => {
       ...{ password: bcrypt.hashSync("123456") },
     }));
 
-    // const hash = bcrypt.hashSync("123456");
-    // console.log(users);
-    // await User.create({
-    //   username: "mszymaniak7",
-    //   firstName: "Marlon",
-    //   lastName: "Szymaniak",
-    //   email: "mszymaniak7@ted.com",
-    //   mobile: "0923834369",
-    //   password: hash,
-    // });
     await User.bulkCreate(users);
     await Genre.bulkCreate(mockGenres);
     await Book.bulkCreate(mockBooks);
