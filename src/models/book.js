@@ -82,15 +82,13 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: "RESTRICT",
     });
 
-    // Book.hasMany(models.BookToGenre, {
-    //   foreignKey: {
-    //     allowNull: false,
-    //     name: "bookId",
-    //   },
-    //   onDelete: "RESTRICT",
-    // });
-
-    Book.belongsToMany(models.Genre, { through: models.BookToGenre });
+    Book.hasMany(models.BookToGenre, {
+      foreignKey: {
+        allowNull: false,
+        name: "bookId",
+      },
+      onDelete: "RESTRICT",
+    });
   };
   return Book;
 };

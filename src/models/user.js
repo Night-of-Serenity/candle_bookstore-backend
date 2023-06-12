@@ -78,25 +78,12 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: "RESTRICT",
     });
 
-    // User.hasMany(models.Like, {
-    //   foreignKey: {
-    //     allowNull: false,
-    //     name: "userId",
-    //   },
-    //   onDelete: "RESTRICT",
-    // });
-
     User.hasMany(models.Review, {
       foreignKey: {
         allowNull: false,
         name: "userId",
       },
       onDelete: "RESTRICT",
-    });
-
-    User.belongsToMany(models.Review, {
-      through: models.Like,
-      as: "LikedUserId",
     });
   };
 

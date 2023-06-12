@@ -13,12 +13,22 @@ const createMockData = async () => {
       ...{ password: bcrypt.hashSync("123456") },
     }));
 
+    // const hash = bcrypt.hashSync("123456");
     // console.log(users);
+    // await User.create({
+    //   username: "mszymaniak7",
+    //   firstName: "Marlon",
+    //   lastName: "Szymaniak",
+    //   email: "mszymaniak7@ted.com",
+    //   mobile: "0923834369",
+    //   password: hash,
+    // });
     await User.bulkCreate(users);
     await Genre.bulkCreate(mockGenres);
     await Book.bulkCreate(mockBooks);
-    // console.log(mockGenres);
-    // await BookToGenre.bulkCreate(Book_to_Genre);
+    console.log(mockGenres);
+    await BookToGenre.bulkCreate(Book_to_Genre);
+    // await BookToGenre.create({ bookId: 1, genreId: 20 });
 
     // for (const data of Book_to_Genre) {
     //   // Find the book by title

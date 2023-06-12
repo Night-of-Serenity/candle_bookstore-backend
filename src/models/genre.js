@@ -16,15 +16,13 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Genre.associate = function (models) {
-    // Genre.hasMany(models.BookToGenre, {
-    //   foreignKey: {
-    //     allowNull: false,
-    //     name: "genreId",
-    //   },
-    //   onDelete: "RESTRICT",
-    // });
-
-    Genre.belongsToMany(models.Book, { through: models.BookToGenre });
+    Genre.hasMany(models.BookToGenre, {
+      foreignKey: {
+        allowNull: false,
+        name: "genreId",
+      },
+      onDelete: "RESTRICT",
+    });
   };
 
   return Genre;

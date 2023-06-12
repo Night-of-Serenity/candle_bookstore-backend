@@ -6,9 +6,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      reviewText: {
-        type: DataTypes.TEXT,
-      },
     },
     {
       underscored: true,
@@ -32,15 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: "RESTRICT",
     });
 
-    // Review.hasMany(models.Like, {
-    //   foreignKey: {
-    //     allowNull: false,
-    //     name: "reviewId",
-    //   },
-    //   onDelete: "RESTRICT",
-    // });
-
-    Review.belongsToMany(models.User, { through: models.Like });
+    // Review.belongsToMany(models.User, { through: models.Like });
 
     // Review.addConstraint("ReviewUserBook", ["usersId", "bookId"], {
     //   type: "unique",

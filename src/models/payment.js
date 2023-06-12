@@ -24,10 +24,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   Payment.associate = function (models) {
-    Payment.hasOne(models.Order, {
+    Payment.belongsTo(models.Order, {
       foreignKey: {
         allowNull: false,
-        name: "orderId",
+        name: "paymentId",
       },
       onDelete: "RESTRICT",
     });
