@@ -12,4 +12,7 @@ booksRoute.post(
   BookController.addBook
 );
 
+booksRoute.get("/getall", BookController.fetchAll);
+booksRoute.get("/getbook/:bookId", BookController.getBookById);
+
 module.exports = booksRoute;

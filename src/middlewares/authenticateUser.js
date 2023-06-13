@@ -1,5 +1,6 @@
 const tokenService = require("../services/token-service");
 const userService = require("../services/user-service");
+const createError = require("../utils/create-error");
 
 const authenticateUser = async (req, res, next) => {
   try {
