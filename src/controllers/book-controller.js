@@ -1,3 +1,4 @@
+const { json } = require("sequelize");
 const BookService = require("../services/book-service");
 
 module.exports.addBook = async (req, res, next) => {
@@ -24,6 +25,16 @@ module.exports.getBookById = async (req, res, next) => {
     const { bookId } = req.params;
     console.log(bookId);
     const book = await BookService.getBookById(bookId);
+    res.status(200).json(book);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports.editBookById = async (req, res, next) => {
+  try {
+    const { bookId } = req.params;
+    const book = await BookService.editBookById(bookId, req.body);
     res.status(200).json(book);
   } catch (err) {
     next(err);

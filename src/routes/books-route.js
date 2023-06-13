@@ -5,14 +5,19 @@ const BookController = require("../controllers/book-controller");
 
 const booksRoute = express.Router();
 
+booksRoute.get("/getall", BookController.fetchAll);
+booksRoute.get("/getbook/:bookId", BookController.getBookById);
 booksRoute.post(
   "/addbook",
   AuthenticateUser,
   AuthenticateAdmin,
   BookController.addBook
 );
-
-booksRoute.get("/getall", BookController.fetchAll);
-booksRoute.get("/getbook/:bookId", BookController.getBookById);
+booksRoute.post(
+  "/editbook/:bookId",
+  AuthenticateUser,
+  AuthenticateAdmin,
+  BookController.editBookById
+);
 
 module.exports = booksRoute;

@@ -1,4 +1,6 @@
 const { Book, BookToGenre, Genre } = require("../models");
+const { sequelize } = require("../models");
+const createError = require("../utils/create-error");
 
 exports.addBook = async (input) => {
   try {
@@ -33,8 +35,6 @@ exports.addBook = async (input) => {
   } catch (err) {
     throw err;
   }
-  //   const book = await Book.create(input);
-  //   console.log(book);
 };
 
 exports.getAll = async () => {
@@ -68,6 +68,63 @@ exports.getBookById = async (bookId) => {
     });
     console.log(book);
     return book;
+  } catch (err) {
+    throw err;
+  }
+};
+
+exports.editBookById = async (bookId, input) => {
+  try {
+    console.log("edit book input", input);
+    // modified input
+    const genres = input.genres;
+    delete input.id;
+    delete input.BookToGenres;
+    delete input.genres;
+    delete input.createdAt;
+    delete input.updatedAt;
+    delete input.deletedAt;
+    console.log("genres", genres);
+    console.log("input after modified", input);
+
+    const t = await sequelize.transaction();
+    try {
+      await Book.update(input, {
+        where: { id: bookId },
+        transaction: t,
+      });
+
+      // delete old genres records of this book
+      await BookToGenre.destroy({
+        where: {
+          bookId: bookId,
+        },
+        transaction: t,
+      });
+
+      // create new genres records of this book
+      const result = genres.map((genreId) => {
+        const bookToGenre = { bookId: bookId, genreId: genreId };
+        return BookToGenre.create(bookToGenre, { transaction: t });
+      });
+
+      await Promise.all(result);
+      await t.commit();
+    } catch (err) {
+      await t.rollback();
+    }
+    const newBook = await Book.findOne({
+      where: { id: bookId },
+      include: [
+        {
+          model: BookToGenre,
+          include: Genre,
+        },
+      ],
+    });
+
+    console.log("new book", newBook);
+    return newBook;
   } catch (err) {
     throw err;
   }
