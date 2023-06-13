@@ -20,4 +20,11 @@ booksRoute.post(
   BookController.editBookById
 );
 
+booksRoute.delete(
+  "/deletebook/:bookId",
+  AuthenticateUser,
+  AuthenticateAdmin,
+  BookController.deleteBookById
+);
+
 module.exports = booksRoute;

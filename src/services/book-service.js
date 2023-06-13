@@ -129,3 +129,13 @@ exports.editBookById = async (bookId, input) => {
     throw err;
   }
 };
+
+exports.deleteBookById = async (bookId) => {
+  try {
+    await Book.destroy({
+      where: { id: bookId },
+    });
+  } catch (err) {
+    throw err;
+  }
+};
