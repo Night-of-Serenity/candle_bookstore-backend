@@ -69,3 +69,12 @@ module.exports.getDiscountBooks = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.fetchGenres = async (req, res, next) => {
+  try {
+    const genres = await BookService.getGenres();
+    res.status(200).json(genres);
+  } catch (err) {
+    next(err);
+  }
+};

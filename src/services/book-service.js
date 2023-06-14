@@ -1,3 +1,4 @@
+const { createServer } = require("mysql2");
 const { Book, BookToGenre, Genre } = require("../models");
 const { sequelize } = require("../models");
 const createError = require("../utils/create-error");
@@ -170,5 +171,15 @@ exports.getDiscountBooks = async () => {
     return books;
   } catch (err) {
     createError("get promotions discount book form database error", 404);
+  }
+};
+
+exports.getGenres = async () => {
+  try {
+    const genres = await Genre.findAll();
+    console.log(genres);
+    return genres;
+  } catch (err) {
+    createError("fetch genres error", 404);
   }
 };
