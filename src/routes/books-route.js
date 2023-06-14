@@ -30,4 +30,6 @@ booksRoute.delete(
 
 booksRoute.get("/bestseller", BookController.getBestseller);
 
+booksRoute.get("/discountbooks", BookController.getDiscountBooks);
+
 module.exports = booksRoute;

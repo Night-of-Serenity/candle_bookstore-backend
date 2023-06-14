@@ -59,3 +59,13 @@ module.exports.getBestseller = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.getDiscountBooks = async (req, res, next) => {
+  try {
+    const books = await BookService.getDiscountBooks();
+    console.log("discount books from controller", books);
+    res.status(200).json(books);
+  } catch (err) {
+    next(err);
+  }
+};

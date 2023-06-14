@@ -1,6 +1,7 @@
 const { Book, BookToGenre, Genre } = require("../models");
 const { sequelize } = require("../models");
 const createError = require("../utils/create-error");
+const { Op } = require("sequelize");
 
 exports.addBook = async (input) => {
   try {
@@ -151,5 +152,23 @@ exports.getTopSeller = async (toplimit) => {
     return books;
   } catch (err) {
     createError("get bestseller form database error", 404);
+  }
+};
+
+exports.getDiscountBooks = async () => {
+  try {
+    const books = await Book.findAll({
+      where: {
+        discount: {
+          [Op.not]: null,
+        },
+      },
+      order: [["discount", "DESC"]],
+    });
+
+    console.log("discount books from service", books);
+    return books;
+  } catch (err) {
+    createError("get promotions discount book form database error", 404);
   }
 };
