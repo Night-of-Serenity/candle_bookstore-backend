@@ -176,7 +176,9 @@ exports.getDiscountBooks = async () => {
 
 exports.getGenres = async () => {
   try {
-    const genres = await Genre.findAll();
+    const genres = await Genre.findAll({
+      attributes: { exclude: ["updatedAt", "createdAt"] },
+    });
     console.log(genres);
     return genres;
   } catch (err) {
