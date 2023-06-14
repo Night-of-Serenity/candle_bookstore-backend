@@ -185,3 +185,33 @@ exports.getGenres = async () => {
     createError("fetch genres error", 404);
   }
 };
+
+exports.getBookByGenreId = async (genreId) => {
+  try {
+    const books = await Book.findAll({
+      attributes: { exclude: ["updatedAt", "createdAt"] },
+      include: [
+        {
+          model: BookToGenre,
+          attributes: { exclude: ["updatedAt", "createdAt"] },
+          include: [
+            {
+              model: Genre,
+              attributes: { exclude: ["updatedAt", "createdAt"] },
+              where: {
+                id: genreId,
+              },
+            },
+          ],
+        },
+      ],
+    });
+    console.log(books);
+
+    return books.filter(
+      (book) => Array.isArray(book.BookToGenres) && book.BookToGenres.length
+    );
+  } catch (err) {
+    createError("fetch books by genreId error", 404);
+  }
+};

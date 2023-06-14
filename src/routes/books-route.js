@@ -34,4 +34,6 @@ booksRoute.get("/discountbooks", BookController.getDiscountBooks);
 
 booksRoute.get("/genres", BookController.fetchGenres);
 
+booksRoute.get("/genres/:genreId", BookController.fetchBooksByGenreId);
+
 module.exports = booksRoute;

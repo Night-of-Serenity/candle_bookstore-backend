@@ -78,3 +78,13 @@ module.exports.fetchGenres = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.fetchBooksByGenreId = async (req, res, next) => {
+  try {
+    console.log(req.body.genreId);
+    const books = await BookService.getBookByGenreId(req.params.genreId);
+    res.status(200).json(books);
+  } catch (err) {
+    next(err);
+  }
+};
