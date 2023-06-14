@@ -2,7 +2,6 @@ const express = require("express");
 const AuthenticateUser = require("../middlewares/authenticateUser");
 const AuthenticateAdmin = require("../middlewares/authenticateAdmin");
 const BookController = require("../controllers/book-controller");
-const authenticateUser = require("../middlewares/authenticateUser");
 
 const booksRoute = express.Router();
 

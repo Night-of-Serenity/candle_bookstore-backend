@@ -6,13 +6,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      price: {
-        type: DataTypes.DECIMAL(6, 2),
-        allowNull: false,
-      },
-      discount: {
-        type: DataTypes.DECIMAL(6, 2),
-      },
     },
     {
       underscored: true,

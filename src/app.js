@@ -8,6 +8,7 @@ const notFoundMiddleware = require("./middlewares/notFoundMiddleware");
 const errorMiddleware = require("./middlewares/errorMiddleware");
 const authRoute = require("./routes/auth-route");
 const booksRoute = require("./routes/books-route");
+const cartRoute = require("./routes/cart-route");
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(express.json());
 
 app.use("/auth", authRoute);
 app.use("/book", booksRoute);
+app.use("/cart", cartRoute);
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);

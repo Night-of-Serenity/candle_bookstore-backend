@@ -1,4 +1,3 @@
-const { createServer } = require("mysql2");
 const { Book, BookToGenre, Genre } = require("../models");
 const { sequelize } = require("../models");
 const createError = require("../utils/create-error");
