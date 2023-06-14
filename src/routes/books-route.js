@@ -2,6 +2,7 @@ const express = require("express");
 const AuthenticateUser = require("../middlewares/authenticateUser");
 const AuthenticateAdmin = require("../middlewares/authenticateAdmin");
 const BookController = require("../controllers/book-controller");
+const authenticateUser = require("../middlewares/authenticateUser");
 
 const booksRoute = express.Router();
 
@@ -13,7 +14,7 @@ booksRoute.post(
   AuthenticateAdmin,
   BookController.addBook
 );
-booksRoute.post(
+booksRoute.put(
   "/editbook/:bookId",
   AuthenticateUser,
   AuthenticateAdmin,
@@ -26,5 +27,7 @@ booksRoute.delete(
   AuthenticateAdmin,
   BookController.deleteBookById
 );
+
+booksRoute.get("/bestseller", BookController.getBestseller);
 
 module.exports = booksRoute;

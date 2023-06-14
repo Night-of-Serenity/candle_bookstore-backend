@@ -5,8 +5,8 @@ const createError = require("../utils/create-error");
 exports.addBook = async (input) => {
   try {
     const { genres, ...book } = input;
-    console.log("genres", genres);
-    console.log("book", book);
+    // console.log("genres", genres);
+    // console.log("book", book);
 
     const bookRes = await Book.create(book);
 
@@ -18,7 +18,7 @@ exports.addBook = async (input) => {
     });
     console.log(bookRes.id);
 
-    await Promise.all(result);
+    // await Promise.all(result);
 
     const newBook = await Book.findOne({
       where: { id: bookRes.id },
@@ -30,7 +30,7 @@ exports.addBook = async (input) => {
       ],
     });
 
-    console.log("new book", newBook);
+    // console.log("new book", newBook);
     return newBook;
   } catch (err) {
     throw err;
@@ -46,7 +46,7 @@ exports.getAll = async () => {
         },
       ],
     });
-    console.log(allBooks);
+    // console.log(allBooks);
     return allBooks;
   } catch (err) {
     throw err;
@@ -66,7 +66,7 @@ exports.getBookById = async (bookId) => {
         },
       ],
     });
-    console.log(book);
+    // console.log(book);
     return book;
   } catch (err) {
     throw err;
@@ -75,7 +75,7 @@ exports.getBookById = async (bookId) => {
 
 exports.editBookById = async (bookId, input) => {
   try {
-    console.log("edit book input", input);
+    // console.log("edit book input", input);
     // modified input
     const genres = input.genres;
     delete input.id;
@@ -84,8 +84,8 @@ exports.editBookById = async (bookId, input) => {
     delete input.createdAt;
     delete input.updatedAt;
     delete input.deletedAt;
-    console.log("genres", genres);
-    console.log("input after modified", input);
+    // console.log("genres", genres);
+    // console.log("input after modified", input);
 
     const t = await sequelize.transaction();
     try {
@@ -123,7 +123,7 @@ exports.editBookById = async (bookId, input) => {
       ],
     });
 
-    console.log("new book", newBook);
+    // console.log("new book", newBook);
     return newBook;
   } catch (err) {
     throw err;
@@ -137,5 +137,19 @@ exports.deleteBookById = async (bookId) => {
     });
   } catch (err) {
     throw err;
+  }
+};
+
+exports.getTopSeller = async (toplimit) => {
+  try {
+    const books = await Book.findAll({
+      order: [["saleQuantity", "DESC"]],
+      limit: toplimit,
+    });
+
+    // console.log(book);
+    return books;
+  } catch (err) {
+    createError("get bestseller form database error", 404);
   }
 };

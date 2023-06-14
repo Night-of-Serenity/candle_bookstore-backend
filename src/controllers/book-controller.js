@@ -49,3 +49,13 @@ module.exports.deleteBookById = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.getBestseller = async (req, res, next) => {
+  try {
+    const books = await BookService.getTopSeller(30);
+    // console.log(books);
+    res.status(200).json(books);
+  } catch (err) {
+    next(err);
+  }
+};
