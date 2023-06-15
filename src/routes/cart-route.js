@@ -9,9 +9,15 @@ cartRoute.post("/additem", AuthenticateUser, CartController.addItemToCart);
 cartRoute.get("/fetchcart", AuthenticateUser, CartController.fetchCart);
 
 cartRoute.patch(
-  "/removeitem",
+  "/reduceitem",
   AuthenticateUser,
   CartController.removeItemFromCart
+);
+
+cartRoute.delete(
+  "/deleteitem/:bookId",
+  AuthenticateUser,
+  CartController.deleteItemFromCart
 );
 
 module.exports = cartRoute;

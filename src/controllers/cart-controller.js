@@ -32,3 +32,15 @@ module.exports.removeItemFromCart = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.deleteItemFromCart = async (req, res, next) => {
+  try {
+    const cart = await CartService.deleteItemFromCart(
+      req.user.id,
+      req.params.bookId
+    );
+    res.status(200).json(cart);
+  } catch (err) {
+    next(err);
+  }
+};

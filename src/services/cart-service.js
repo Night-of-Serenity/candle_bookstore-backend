@@ -76,11 +76,11 @@ exports.removeItemFromCart = async (userId, bookId, quantity) => {
 
     console.log(findExistItem);
 
-    if (findExistItem.quantity - quantity < 0) {
-      createError("invalid remove item quantity", 404);
-    }
-
     if (findExistItem) {
+      if (findExistItem.quantity - quantity < 0) {
+        createError("invalid remove item quantity", 404);
+      }
+
       await CartItem.update(
         {
           quantity: findExistItem.quantity - quantity,
@@ -107,5 +107,38 @@ exports.removeItemFromCart = async (userId, bookId, quantity) => {
     return cart;
   } catch (err) {
     createError("error from add cart item", 404);
+  }
+};
+
+exports.deleteItemFromCart = async (userId, bookId) => {
+  try {
+    const findExistItem = await CartItem.findOne({
+      where: {
+        [Op.and]: [{ userId: userId }, { bookId: bookId }],
+      },
+    });
+
+    if (findExistItem) {
+      CartItem.destroy({
+        where: {
+          [Op.and]: [{ userId: userId, bookId: bookId }],
+        },
+      });
+    }
+
+    const cart = await Book.findAll({
+      include: [
+        {
+          model: CartItem,
+          where: {
+            userId: userId,
+          },
+        },
+      ],
+    });
+    console.log(cart);
+    return cart;
+  } catch (err) {
+    createError("error from delete item from cart", 404);
   }
 };
