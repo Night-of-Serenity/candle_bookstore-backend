@@ -19,10 +19,10 @@ module.exports.fetchCart = async (req, res, next) => {
   }
 };
 
-module.exports.removeItemFromCart = async (req, res, next) => {
+module.exports.reduceItemFromCart = async (req, res, next) => {
   try {
     const { bookId, quantity } = req.body;
-    const cart = await CartService.removeItemFromCart(
+    const cart = await CartService.reduceItemFromCart(
       req.user.id,
       bookId,
       quantity

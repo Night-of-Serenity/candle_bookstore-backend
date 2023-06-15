@@ -65,7 +65,7 @@ exports.addItemToCart = async (userId, bookId, quantity) => {
   }
 };
 
-exports.removeItemFromCart = async (userId, bookId, quantity) => {
+exports.reduceItemFromCart = async (userId, bookId, quantity) => {
   try {
     console.log(userId, bookId, quantity);
     const findExistItem = await CartItem.findOne({

@@ -11,7 +11,7 @@ cartRoute.get("/fetchcart", AuthenticateUser, CartController.fetchCart);
 cartRoute.patch(
   "/reduceitem",
   AuthenticateUser,
-  CartController.removeItemFromCart
+  CartController.reduceItemFromCart
 );
 
 cartRoute.delete(
