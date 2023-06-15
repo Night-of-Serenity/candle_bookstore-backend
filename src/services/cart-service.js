@@ -3,7 +3,25 @@ const { sequelize } = require("../models");
 const createError = require("../utils/create-error");
 const { Op } = require("sequelize");
 
-exports.addItemById = async (userId, bookId, quantity) => {
+exports.fetchCart = async (userId) => {
+  try {
+    const cart = await Book.findAll({
+      include: [
+        {
+          model: CartItem,
+          where: {
+            userId: userId,
+          },
+        },
+      ],
+    });
+    return cart;
+  } catch (err) {
+    createError("fetch cart error", 404);
+  }
+};
+
+exports.addItemToCart = async (userId, bookId, quantity) => {
   try {
     console.log(userId, bookId, quantity);
     const findExistItem = await CartItem.findOne({
@@ -16,8 +34,6 @@ exports.addItemById = async (userId, bookId, quantity) => {
     if (findExistItem) {
       await CartItem.update(
         {
-          userId: userId,
-          bookId: bookId,
           quantity: findExistItem.quantity + quantity,
         },
         {
@@ -30,6 +46,51 @@ exports.addItemById = async (userId, bookId, quantity) => {
         bookId: bookId,
         quantity: quantity,
       });
+    }
+
+    const cart = await Book.findAll({
+      include: [
+        {
+          model: CartItem,
+          where: {
+            userId: userId,
+          },
+        },
+      ],
+    });
+    console.log(cart);
+    return cart;
+  } catch (err) {
+    createError("error from add cart item", 404);
+  }
+};
+
+exports.removeItemFromCart = async (userId, bookId, quantity) => {
+  try {
+    console.log(userId, bookId, quantity);
+    const findExistItem = await CartItem.findOne({
+      where: {
+        [Op.and]: [{ userId: userId }, { bookId: bookId }],
+      },
+    });
+
+    console.log(findExistItem);
+
+    if (findExistItem.quantity - quantity < 0) {
+      createError("invalid remove item quantity", 404);
+    }
+
+    if (findExistItem) {
+      await CartItem.update(
+        {
+          quantity: findExistItem.quantity - quantity,
+        },
+        {
+          where: { id: findExistItem.id },
+        }
+      );
+    } else {
+      createError("cannot find removed item on database", 404);
     }
 
     const cart = await Book.findAll({

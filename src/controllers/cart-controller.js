@@ -1,9 +1,32 @@
 const CartService = require("../services/cart-service");
 
-module.exports.addItemById = async (req, res, next) => {
+module.exports.addItemToCart = async (req, res, next) => {
   try {
     const { bookId, quantity } = req.body;
-    const cart = await CartService.addItemById(req.user.id, bookId, quantity);
+    const cart = await CartService.addItemToCart(req.user.id, bookId, quantity);
+    res.status(200).json(cart);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports.fetchCart = async (req, res, next) => {
+  try {
+    const cart = await CartService.fetchCart(req.user.id);
+    res.status(200).json(cart);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports.removeItemFromCart = async (req, res, next) => {
+  try {
+    const { bookId, quantity } = req.body;
+    const cart = await CartService.removeItemFromCart(
+      req.user.id,
+      bookId,
+      quantity
+    );
     res.status(200).json(cart);
   } catch (err) {
     next(err);
