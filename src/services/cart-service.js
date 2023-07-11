@@ -34,7 +34,7 @@ exports.addItemToCart = async (userId, bookId, quantity) => {
     if (findExistItem) {
       await CartItem.update(
         {
-          quantity: findExistItem.quantity + quantity,
+          quantity: +findExistItem.quantity + +quantity,
         },
         {
           where: { id: findExistItem.id },
@@ -83,7 +83,7 @@ exports.reduceItemFromCart = async (userId, bookId, quantity) => {
 
       await CartItem.update(
         {
-          quantity: findExistItem.quantity - quantity,
+          quantity: +findExistItem.quantity - +quantity,
         },
         {
           where: { id: findExistItem.id },
