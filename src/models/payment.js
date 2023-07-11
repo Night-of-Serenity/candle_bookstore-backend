@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     Payment.belongsTo(models.Order, {
       foreignKey: {
         allowNull: false,
-        name: "paymentId",
+        name: "orderId",
       },
       onDelete: "RESTRICT",
     });
