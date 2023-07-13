@@ -87,15 +87,20 @@ module.exports.submitOrder = async (req, res, next) => {
     if (req.file) {
       console.log(req.file);
       // upload to cloudinary
-      const result = await UploadService.upload(req.file.path);
+      // const result = await UploadService.upload(req.file.path);
 
-      // get secure url return from cloudinary's result
-      paymentSlip = result.secure_url;
+      // // get secure url return from cloudinary's result
+      // paymentSlip = result.secure_url;
     }
 
     console.log("paymentSlip-----", paymentSlip);
-    if (cart && cart.length)
-      await CartService.submitOrder(userId, paymentSlip, cart, t);
+
+    if (cart && cart.length) {
+      const totalPrice = CartService.countTotalPriceFromCart(cart);
+      const totalDiscount = CartService.countTotalDiscountFromCart(cart);
+      console.log("totalPrice----", totalPrice);
+      console.log("totalDiscount-----", totalDiscount);
+    }
 
     res.status(200).json({ message: "success" });
   } catch (err) {

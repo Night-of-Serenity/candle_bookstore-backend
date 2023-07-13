@@ -156,9 +156,21 @@ exports.updateUserDeliveryInfo = async (userId, input, transaction) => {
   }
 };
 
-exports.submitOrder = async (userId, paymentSlip, cart, transaction) => {
-  try {
-  } catch (err) {
-    throw err;
-  }
+exports.countTotalPriceFromCart = (cart) => {
+  const result = cart.reduce((sum, item) => {
+    const price = item?.price;
+    const quantity = item?.CartItems[0]?.quantity;
+    const totalPrice = price * quantity;
+    return sum + totalPrice;
+  }, 0);
+  return result;
+};
+
+exports.countTotalDiscountFromCart = (cart) => {
+  return cart.reduce((sum, item) => {
+    const price = item?.price;
+    const discount = item?.discount;
+    const quantity = item?.CartItems[0]?.quantity;
+    return sum + price * discount * quantity;
+  }, 0);
 };
