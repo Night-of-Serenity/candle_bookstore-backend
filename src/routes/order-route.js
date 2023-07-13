@@ -5,6 +5,11 @@ const OrderController = require("../controllers/order-controller");
 
 const orderRoute = express.Router();
 
-orderRoute.post("/fetchadminorderslist", AuthenticateUser, AuthenticateAdmin);
+orderRoute.get(
+  "/fetchadminorderslist",
+  AuthenticateUser,
+  AuthenticateAdmin,
+  OrderController.fetchOrdersListForAdmin
+);
 
 module.exports = orderRoute;
