@@ -19,7 +19,7 @@ const authenticateAdmin = async (req, res, next) => {
     if (!admin) {
       createError("unauthorized", 401);
     }
-    console.log("hello from authen admin");
+    console.log("authen admin success");
     next();
   } catch (err) {
     next(err);

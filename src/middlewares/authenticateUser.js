@@ -21,7 +21,7 @@ const authenticateUser = async (req, res, next) => {
       createError("unauthorized", 401);
     }
 
-    console.log("hello from authen user");
+    console.log("authen user success");
     req.user = user;
     next();
   } catch (err) {

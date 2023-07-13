@@ -22,7 +22,7 @@ module.exports.fetchAll = async (req, res, next) => {
 module.exports.getBookById = async (req, res, next) => {
   try {
     const { bookId } = req.params;
-    console.log(bookId);
+    // console.log(bookId);
     const book = await BookService.getBookById(bookId);
     res.status(200).json(book);
   } catch (err) {
@@ -63,7 +63,7 @@ module.exports.getBestseller = async (req, res, next) => {
 module.exports.getDiscountBooks = async (req, res, next) => {
   try {
     const books = await BookService.getDiscountBooks();
-    console.log("discount books from controller", books);
+    // console.log("discount books from controller", books);
     res.status(200).json(books);
   } catch (err) {
     next(err);
@@ -81,7 +81,7 @@ module.exports.fetchGenres = async (req, res, next) => {
 
 module.exports.fetchBooksByGenreId = async (req, res, next) => {
   try {
-    console.log(req.body.genreId);
+    // console.log(req.body.genreId);
     const books = await BookService.getBookByGenreId(req.params.genreId);
     res.status(200).json(books);
   } catch (err) {
