@@ -192,3 +192,15 @@ exports.createOrderItem = async (input, transaction) => {
     throw err;
   }
 };
+
+exports.clearCart = async (userId, transaction) => {
+  try {
+    const result = await CartItem.destroy({
+      where: { userId: userId },
+      transaction,
+    });
+    if (result === 0) createError("error on clear cart", 400);
+  } catch (err) {
+    throw err;
+  }
+};

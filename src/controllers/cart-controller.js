@@ -54,10 +54,10 @@ module.exports.submitOrder = async (req, res, next) => {
   const t = await sequelize.transaction();
   try {
     const userId = req.user.id;
-    console.log("submit order input:", req.body);
+    // console.log("submit order input:", req.body);
     const { firstName, lastName, mobile, address } = req.body;
     const cart = JSON.parse(req.body.cartItems);
-    console.log("cart--------", cart);
+    // console.log("cart--------", cart);
     const { deliveryFee } = req.body;
 
     if (
@@ -87,7 +87,7 @@ module.exports.submitOrder = async (req, res, next) => {
     // paymentSlip image input
     let paymentSlip;
     if (req.file) {
-      console.log(req.file);
+      // console.log(req.file);
       // upload to cloudinary
       const result = await UploadService.upload(req.file.path);
 
@@ -95,7 +95,7 @@ module.exports.submitOrder = async (req, res, next) => {
       paymentSlip = result.secure_url;
     }
 
-    console.log("paymentSlip-----", paymentSlip);
+    // console.log("paymentSlip-----", paymentSlip);
 
     if (cart && cart.length) {
       const totalPrice = CartService.countTotalPriceFromCart(cart);
@@ -139,6 +139,9 @@ module.exports.submitOrder = async (req, res, next) => {
         return BookService.reduceBookStock(book.id, quantity, t);
       });
       await Promise.all(updatedBooks);
+
+      // clear cart
+      await CartService.clearCart(userId, t);
     }
 
     await t.commit();
