@@ -1,5 +1,8 @@
 const CartService = require("../services/cart-service");
 const { sequelize } = require("../models");
+const createError = require("../utils/create-error");
+const UploadService = require("../services/upload-service");
+const fs = require("fs");
 
 module.exports.addItemToCart = async (req, res, next) => {
   try {
@@ -54,8 +57,6 @@ module.exports.submitOrder = async (req, res, next) => {
     const { firstName, lastName, mobile, address } = req.body;
     const cart = JSON.parse(req.body.cartItems);
     console.log("cart--------", cart);
-    const paymentSlip = req.file;
-    console.log("slip ------", paymentSlip);
 
     if (
       firstName &&
@@ -77,10 +78,31 @@ module.exports.submitOrder = async (req, res, next) => {
         },
         t
       );
+    } else {
+      createError("incomplete delivery infomation", 400);
     }
 
-    res.status(200).json({ ...input, paymentSlip });
+    // paymentSlip image input
+    let paymentSlip;
+    if (req.file) {
+      console.log(req.file);
+      // upload to cloudinary
+      const result = await UploadService.upload(req.file.path);
+
+      // get secure url return from cloudinary's result
+      paymentSlip = result.secure_url;
+    }
+
+    if (cart && cart.length)
+      await CartService.submitOrder(userId, paymentSlip, cart, t);
+
+    res.status(200).json({ message: "success" });
   } catch (err) {
+    await t.rollback();
     next(err);
+  } finally {
+    if (req.file) {
+      fs.unlinkSync(req.file.path);
+    }
   }
 };

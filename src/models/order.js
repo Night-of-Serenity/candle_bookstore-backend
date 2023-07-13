@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       deliveryFee: {
         type: DataTypes.DECIMAL(6, 2),
       },
+      paymentSlip: DataTypes.STRING,
       orderStatus: {
         type: DataTypes.ENUM("confirmed", "pending"),
         allowNull: false,
@@ -25,13 +26,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   Order.associate = function (models) {
-    Order.hasOne(models.Payment, {
-      foreignKey: {
-        allowNull: false,
-        name: "orderId",
-      },
-      onDelete: "RESTRICT",
-    });
+    // Order.hasOne(models.Payment, {
+    //   foreignKey: {
+    //     allowNull: false,
+    //     name: "orderId",
+    //   },
+    //   onDelete: "RESTRICT",
+    // });
 
     Order.hasMany(models.OrderItem, {
       foreignKey: {

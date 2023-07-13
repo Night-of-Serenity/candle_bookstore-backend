@@ -155,3 +155,10 @@ exports.updateUserDeliveryInfo = async (userId, input, transaction) => {
     throw err;
   }
 };
+
+exports.submitOrder = async (userId, paymentSlip, cart, transaction) => {
+  try {
+  } catch (err) {
+    throw err;
+  }
+};
