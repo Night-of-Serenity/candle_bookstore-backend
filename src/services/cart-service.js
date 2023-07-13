@@ -23,13 +23,13 @@ exports.fetchCart = async (userId) => {
 
 exports.addItemToCart = async (userId, bookId, quantity) => {
   try {
-    console.log(userId, bookId, quantity);
+    // console.log(userId, bookId, quantity);
     const findExistItem = await CartItem.findOne({
       where: {
         [Op.and]: [{ userId: userId }, { bookId: bookId }],
       },
     });
-    console.log(findExistItem);
+    // console.log(findExistItem);
 
     if (findExistItem) {
       await CartItem.update(
@@ -58,7 +58,7 @@ exports.addItemToCart = async (userId, bookId, quantity) => {
         },
       ],
     });
-    console.log(cart);
+    // console.log(cart);
     return cart;
   } catch (err) {
     createError("error from add cart item", 404);
@@ -67,14 +67,14 @@ exports.addItemToCart = async (userId, bookId, quantity) => {
 
 exports.reduceItemFromCart = async (userId, bookId, quantity) => {
   try {
-    console.log(userId, bookId, quantity);
+    // console.log(userId, bookId, quantity);
     const findExistItem = await CartItem.findOne({
       where: {
         [Op.and]: [{ userId: userId }, { bookId: bookId }],
       },
     });
 
-    console.log(findExistItem);
+    // console.log(findExistItem);
 
     if (findExistItem) {
       if (findExistItem.quantity - quantity < 0) {
@@ -103,7 +103,7 @@ exports.reduceItemFromCart = async (userId, bookId, quantity) => {
         },
       ],
     });
-    console.log(cart);
+    // console.log(cart);
     return cart;
   } catch (err) {
     createError("error from add cart item", 404);
@@ -136,7 +136,7 @@ exports.deleteItemFromCart = async (userId, bookId) => {
         },
       ],
     });
-    console.log(cart);
+    // console.log(cart);
     return cart;
   } catch (err) {
     createError("error from delete item from cart", 404);

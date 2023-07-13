@@ -17,7 +17,7 @@ exports.addBook = async (input) => {
       const bookToGenre = { bookId: bookRes.id, genreId: genreId };
       return BookToGenre.create(bookToGenre);
     });
-    console.log(bookRes.id);
+    // console.log(bookRes.id);
 
     // await Promise.all(result);
 
@@ -166,7 +166,7 @@ exports.getDiscountBooks = async () => {
       order: [["discount", "DESC"]],
     });
 
-    console.log("discount books from service", books);
+    // console.log("discount books from service", books);
     return books;
   } catch (err) {
     createError("get promotions discount book form database error", 404);
@@ -178,7 +178,7 @@ exports.getGenres = async () => {
     const genres = await Genre.findAll({
       attributes: { exclude: ["updatedAt", "createdAt"] },
     });
-    console.log(genres);
+    // console.log(genres);
     return genres;
   } catch (err) {
     createError("fetch genres error", 404);
@@ -205,7 +205,7 @@ exports.getBookByGenreId = async (genreId) => {
         },
       ],
     });
-    console.log(books);
+    // console.log(books);
 
     return books.filter(
       (book) => Array.isArray(book.BookToGenres) && book.BookToGenres.length

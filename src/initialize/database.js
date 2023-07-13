@@ -16,7 +16,7 @@ const createMockData = async () => {
     await User.bulkCreate(users);
     await Genre.bulkCreate(mockGenres);
     await Book.bulkCreate(mockBooks);
-    console.log(mockGenres);
+    // console.log(mockGenres);
     await BookToGenre.bulkCreate(Book_to_Genre);
     // await BookToGenre.create({ bookId: 1, genreId: 20 });
 
@@ -33,7 +33,7 @@ const createMockData = async () => {
 
     process.exit(0);
   } catch (err) {
-    console.log(err.message);
+    // console.log(err.message);
   }
 };
 
