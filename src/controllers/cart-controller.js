@@ -44,3 +44,15 @@ module.exports.deleteItemFromCart = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.submitOrder = async (req, res, next) => {
+  try {
+    const input = req.body;
+    const paymentSlip = req.file;
+    console.log("submit order input:", input);
+    console.log("slip ------", paymentSlip);
+    res.status(200).json({ ...input, ...paymentSlip });
+  } catch (err) {
+    next(err);
+  }
+};
