@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       orderStatus: {
         type: DataTypes.ENUM("confirmed", "pending"),
         allowNull: false,
+        defaultValue: "pending",
       },
     },
     {

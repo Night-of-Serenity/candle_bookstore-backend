@@ -93,6 +93,7 @@ module.exports.submitOrder = async (req, res, next) => {
       paymentSlip = result.secure_url;
     }
 
+    console.log("paymentSlip-----", paymentSlip);
     if (cart && cart.length)
       await CartService.submitOrder(userId, paymentSlip, cart, t);
 
