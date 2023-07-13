@@ -1,5 +1,4 @@
-const { CartItem, Book, User } = require("../models");
-const { sequelize } = require("../models");
+const { CartItem, Book, User, Order, OrderItem } = require("../models");
 const createError = require("../utils/create-error");
 const { Op } = require("sequelize");
 
@@ -149,7 +148,9 @@ exports.updateUserDeliveryInfo = async (userId, input, transaction) => {
 
     if (!existUser) createError("unauthorize", 404);
 
-    const result = await existUser.update(input, { transaction: transaction });
+    const result = await existUser.update(input, {
+      transaction: transaction,
+    });
     return result;
   } catch (err) {
     throw err;
@@ -173,4 +174,21 @@ exports.countTotalDiscountFromCart = (cart) => {
     const quantity = item?.CartItems[0]?.quantity;
     return sum + price * discount * quantity;
   }, 0);
+};
+
+exports.createOrder = async (input, transaction) => {
+  try {
+    const order = await Order.create(input, { transaction: transaction });
+    return order;
+  } catch (err) {
+    throw err;
+  }
+};
+
+exports.createOrderItem = async (input, transaction) => {
+  try {
+    return OrderItem.create(input, { transaction });
+  } catch (err) {
+    throw err;
+  }
 };

@@ -214,3 +214,18 @@ exports.getBookByGenreId = async (genreId) => {
     createError("fetch books by genreId error", 404);
   }
 };
+
+exports.reduceBookStock = async (bookId, reduceQuantity, transaction) => {
+  try {
+    const book = await Book.findByPk(bookId);
+    if (!book) createError(`no reference book id:${bookId}`, 400);
+    if (book.quantity < reduceQuantity)
+      createError("invalid book stock reduce", 400);
+    return book.update(
+      { quantity: book.quantity - reduceQuantity },
+      { transaction }
+    );
+  } catch (err) {
+    throw err;
+  }
+};
