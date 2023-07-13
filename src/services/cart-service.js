@@ -142,3 +142,16 @@ exports.deleteItemFromCart = async (userId, bookId) => {
     createError("error from delete item from cart", 404);
   }
 };
+
+exports.updateUserDeliveryInfo = async (userId, input, transaction) => {
+  try {
+    const existUser = await User.findByPk(userId);
+
+    if (!existUser) createError("unauthorize", 404);
+
+    const result = await existUser.update(input, { transaction: transaction });
+    return result;
+  } catch (err) {
+    throw err;
+  }
+};

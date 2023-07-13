@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       deliveryFee: {
         type: DataTypes.DECIMAL(6, 2),
       },
-      OrderStatus: {
+      orderStatus: {
         type: DataTypes.ENUM("confirmed", "pending"),
         allowNull: false,
       },

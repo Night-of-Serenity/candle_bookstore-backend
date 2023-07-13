@@ -1,4 +1,5 @@
 const CartService = require("../services/cart-service");
+const { sequelize } = require("../models");
 
 module.exports.addItemToCart = async (req, res, next) => {
   try {
@@ -46,12 +47,39 @@ module.exports.deleteItemFromCart = async (req, res, next) => {
 };
 
 module.exports.submitOrder = async (req, res, next) => {
+  const t = await sequelize.transaction();
   try {
-    const input = req.body;
+    const userId = req.user.id;
+    console.log("submit order input:", req.body);
+    const { firstName, lastName, mobile, address } = req.body;
+    const cart = JSON.parse(req.body.cartItems);
+    console.log("cart--------", cart);
     const paymentSlip = req.file;
-    console.log("submit order input:", input);
     console.log("slip ------", paymentSlip);
-    res.status(200).json({ ...input, ...paymentSlip });
+
+    if (
+      firstName &&
+      firstName.trim() &&
+      lastName &&
+      lastName.trim() &&
+      mobile &&
+      mobile.trim() &&
+      address &&
+      address.trim()
+    ) {
+      await CartService.updateUserDeliveryInfo(
+        userId,
+        {
+          firstName,
+          lastName,
+          mobile,
+          address,
+        },
+        t
+      );
+    }
+
+    res.status(200).json({ ...input, paymentSlip });
   } catch (err) {
     next(err);
   }

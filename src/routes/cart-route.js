@@ -22,7 +22,7 @@ cartRoute.delete(
 );
 
 cartRoute.post(
-  "/checkout",
+  "/submitpayment",
   AuthenticateUser,
   upload.single("paymentSlip"),
   CartController.submitOrder
