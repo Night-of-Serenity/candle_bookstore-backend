@@ -261,7 +261,7 @@ exports.getBooksStock = async () => {
           model: BookToGenre,
         },
       ],
-      order: [["createdAt", "DESC"]],
+      order: [["updatedAt", "DESC"]],
     });
     // console.log(allBooks);
     return allBooks;
