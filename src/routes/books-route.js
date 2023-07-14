@@ -4,6 +4,7 @@ const AuthenticateAdmin = require("../middlewares/authenticateAdmin");
 const BookController = require("../controllers/book-controller");
 const authenticateUser = require("../middlewares/authenticateUser");
 const authenticateAdmin = require("../middlewares/authenticateAdmin");
+const upload = require("../middlewares/uploadMiddleware");
 
 const booksRoute = express.Router();
 
@@ -17,6 +18,7 @@ booksRoute.post(
 );
 booksRoute.put(
   "/editbook/:bookId",
+  upload.single("bookCover"),
   AuthenticateUser,
   AuthenticateAdmin,
   BookController.editBookById

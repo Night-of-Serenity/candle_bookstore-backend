@@ -1,4 +1,6 @@
 const BookService = require("../services/book-service");
+const UploadService = require("../services/upload-service");
+const fs = require("fs");
 
 module.exports.addBook = async (req, res, next) => {
   try {
@@ -33,7 +35,13 @@ module.exports.getBookById = async (req, res, next) => {
 module.exports.editBookById = async (req, res, next) => {
   try {
     const { bookId } = req.params;
-    const book = await BookService.editBookById(bookId, req.body);
+    console.log("edit data----", req.body);
+    const data = { ...req.body };
+    for (let key in data) {
+      data[key] = JSON.parse(data[key]);
+    }
+    console.log("edit data pare", data);
+    const book = await BookService.editBookById(bookId, data);
     res.status(200).json(book);
   } catch (err) {
     next(err);
