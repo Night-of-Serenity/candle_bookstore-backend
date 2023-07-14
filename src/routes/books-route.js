@@ -2,6 +2,8 @@ const express = require("express");
 const AuthenticateUser = require("../middlewares/authenticateUser");
 const AuthenticateAdmin = require("../middlewares/authenticateAdmin");
 const BookController = require("../controllers/book-controller");
+const authenticateUser = require("../middlewares/authenticateUser");
+const authenticateAdmin = require("../middlewares/authenticateAdmin");
 
 const booksRoute = express.Router();
 
@@ -36,5 +38,12 @@ booksRoute.get("/genres", BookController.fetchGenres);
 booksRoute.get("/genres/:genreId", BookController.fetchBooksByGenreId);
 
 booksRoute.get("/search", BookController.fetchBooksBySearchQuery);
+
+booksRoute.get(
+  "/getBooksStock",
+  authenticateUser,
+  authenticateAdmin,
+  BookController.fetchBooksStock
+);
 
 module.exports = booksRoute;

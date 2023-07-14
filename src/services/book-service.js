@@ -46,6 +46,7 @@ exports.getAll = async () => {
           model: BookToGenre,
         },
       ],
+      order: [["title", "ASC"]],
     });
     // console.log(allBooks);
     return allBooks;
@@ -247,6 +248,23 @@ exports.searchBookByTitle = async (input) => {
       ],
       order: [["title", "ASC"]],
     });
+  } catch (err) {
+    throw err;
+  }
+};
+
+exports.getBooksStock = async () => {
+  try {
+    const allBooks = await Book.findAll({
+      include: [
+        {
+          model: BookToGenre,
+        },
+      ],
+      order: [["createdAt", "DESC"]],
+    });
+    // console.log(allBooks);
+    return allBooks;
   } catch (err) {
     throw err;
   }

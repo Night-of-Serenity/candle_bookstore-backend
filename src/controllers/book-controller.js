@@ -99,3 +99,12 @@ module.exports.fetchBooksBySearchQuery = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.fetchBooksStock = async (req, res, next) => {
+  try {
+    const booksStock = await BookService.getBooksStock();
+    res.status(200).json(booksStock);
+  } catch (err) {
+    next(err);
+  }
+};
