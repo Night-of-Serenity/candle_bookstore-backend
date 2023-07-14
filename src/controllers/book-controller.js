@@ -41,10 +41,25 @@ module.exports.editBookById = async (req, res, next) => {
       data[key] = JSON.parse(data[key]);
     }
     console.log("edit data pare", data);
-    const book = await BookService.editBookById(bookId, data);
+    let bookCover;
+    if (req.file) {
+      // console.log(req.file);
+      // upload to cloudinary
+      const result = await UploadService.upload(req.file.path);
+
+      // get secure url return from cloudinary's result
+      bookCover = result.secure_url;
+    }
+    console.log("book cover", bookCover);
+    const newData = { ...data, bookCover: bookCover };
+    const book = await BookService.editBookById(bookId, newData);
     res.status(200).json(book);
   } catch (err) {
     next(err);
+  } finally {
+    if (req.file) {
+      fs.unlinkSync(req.file.path);
+    }
   }
 };
 
