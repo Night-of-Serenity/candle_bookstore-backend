@@ -229,3 +229,25 @@ exports.reduceBookStock = async (bookId, reduceQuantity, transaction) => {
     throw err;
   }
 };
+
+exports.searchBookByTitle = async (input) => {
+  try {
+    console.log("search input--------", input);
+    return Book.findAll({
+      where: {
+        title: {
+          [Op.like]: "%" + input + "%",
+        },
+      },
+      include: [
+        {
+          model: BookToGenre,
+          include: Genre,
+        },
+      ],
+      order: [["title", "ASC"]],
+    });
+  } catch (err) {
+    throw err;
+  }
+};
