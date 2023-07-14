@@ -2,6 +2,9 @@ const express = require("express");
 const AuthenticateUser = require("../middlewares/authenticateUser");
 const AuthenticateAdmin = require("../middlewares/authenticateAdmin");
 const BookController = require("../controllers/book-controller");
+const authenticateUser = require("../middlewares/authenticateUser");
+const authenticateAdmin = require("../middlewares/authenticateAdmin");
+const upload = require("../middlewares/uploadMiddleware");
 
 const booksRoute = express.Router();
 
@@ -15,6 +18,7 @@ booksRoute.post(
 );
 booksRoute.put(
   "/editbook/:bookId",
+  upload.single("bookCover"),
   AuthenticateUser,
   AuthenticateAdmin,
   BookController.editBookById
@@ -36,5 +40,12 @@ booksRoute.get("/genres", BookController.fetchGenres);
 booksRoute.get("/genres/:genreId", BookController.fetchBooksByGenreId);
 
 booksRoute.get("/search", BookController.fetchBooksBySearchQuery);
+
+booksRoute.get(
+  "/getBooksStock",
+  authenticateUser,
+  authenticateAdmin,
+  BookController.fetchBooksStock
+);
 
 module.exports = booksRoute;

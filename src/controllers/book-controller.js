@@ -1,4 +1,6 @@
 const BookService = require("../services/book-service");
+const UploadService = require("../services/upload-service");
+const fs = require("fs");
 
 module.exports.addBook = async (req, res, next) => {
   try {
@@ -33,10 +35,31 @@ module.exports.getBookById = async (req, res, next) => {
 module.exports.editBookById = async (req, res, next) => {
   try {
     const { bookId } = req.params;
-    const book = await BookService.editBookById(bookId, req.body);
+    console.log("edit data----", req.body);
+    const data = { ...req.body };
+    for (let key in data) {
+      data[key] = JSON.parse(data[key]);
+    }
+    console.log("edit data pare", data);
+    let bookCover;
+    if (req.file) {
+      // console.log(req.file);
+      // upload to cloudinary
+      const result = await UploadService.upload(req.file.path);
+
+      // get secure url return from cloudinary's result
+      bookCover = result.secure_url;
+    }
+    console.log("book cover", bookCover);
+    const newData = { ...data, bookCover: bookCover };
+    const book = await BookService.editBookById(bookId, newData);
     res.status(200).json(book);
   } catch (err) {
     next(err);
+  } finally {
+    if (req.file) {
+      fs.unlinkSync(req.file.path);
+    }
   }
 };
 
@@ -95,6 +118,15 @@ module.exports.fetchBooksBySearchQuery = async (req, res, next) => {
     console.log("title-----", title);
     const books = await BookService.searchBookByTitle(title);
     res.status(200).json(books);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports.fetchBooksStock = async (req, res, next) => {
+  try {
+    const booksStock = await BookService.getBooksStock();
+    res.status(200).json(booksStock);
   } catch (err) {
     next(err);
   }
