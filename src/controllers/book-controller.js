@@ -88,3 +88,12 @@ module.exports.fetchBooksByGenreId = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.fetchBooksBySearchQuery = async (req, res, next) => {
+  try {
+    const { title } = req.query;
+    console.log("title-----", title);
+  } catch (err) {
+    next(err);
+  }
+};
