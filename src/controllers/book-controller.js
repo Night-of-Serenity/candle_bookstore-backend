@@ -93,6 +93,8 @@ module.exports.fetchBooksBySearchQuery = async (req, res, next) => {
   try {
     const { title } = req.query;
     console.log("title-----", title);
+    const books = await BookService.searchBookByTitle(title);
+    res.status(200).json(books);
   } catch (err) {
     next(err);
   }
